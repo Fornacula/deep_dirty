@@ -32,9 +32,19 @@ In an `ActiveModel` include this module:
 
     user = User.first
     user.name.upcase!
+    user.valid?
     user.changed?       # => true
     user.changes        # => {"name" => ["Test User", "TEST USER"]}
 
+
+Alternatively if you need to check changes without calling validation, use `deep_changed?`:
+
+    user = User.first
+    user.name.upcase!
+    user.changed?       # => false
+    user.deep_changed?  # => true
+    user.changed?       # => true
+    user.changes        # => {"name" => ["Test User", "TEST USER"]}
 
 
 ## Contributing

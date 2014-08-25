@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = DeepDirty::VERSION
   spec.authors       = ["Laas Toom"]
   spec.email         = ["laas.toom@gmail.com"]
-  spec.summary       = %q{Dirty tracking that supports destructive changes}
-  spec.description   = %q{An ActiveRecord::Concern that fixes dirty tracking for destructive or in-place changes
-   by adding a `before_validation` hook that compares current value to that of `before_type_cast` and forces changes if needed.}
+  spec.summary       = %q{Dirty tracking that supports implicit destructive changes}
+  spec.description   = %q{Sets up `before_validation` callback that compares every attribute to it's before
+    type cast value and marks all changes detected.}
   spec.homepage      = "https://github.com/borgand/deep_dirty"
   spec.license       = "MIT"
 
@@ -22,10 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rspec-rails"
-  spec.add_development_dependency "activemodel", ">= 3.0.0"
-  spec.add_development_dependency "activesupport", ">= 3.0.0"
 
   spec.add_runtime_dependency "activemodel", ">= 3.0.0"
-  spec.add_runtime_dependency "activesupport", ">= 3.0.0"
 end

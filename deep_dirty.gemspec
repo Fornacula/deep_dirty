@@ -8,9 +8,13 @@ Gem::Specification.new do |spec|
   spec.version       = DeepDirty::VERSION
   spec.authors       = ["Laas Toom"]
   spec.email         = ["laas.toom@gmail.com"]
-  spec.summary       = %q{Dirty tracking that supports implicit destructive changes}
-  spec.description   = %q{Sets up `before_validation` callback that compares every attribute to it's before
-    type cast value and marks all changes detected.}
+  spec.summary       = %q{Dirty tracking that supports implicit changes (e.g. upcase! etc)}
+  spec.description   = %q{Deep dirty checking that compares every attribute to it's value before type cast
+    and marks all changes detected as changed attributes. This makes possible detecting `user.name.upcase!`
+    and similar implicit changes.
+
+    To make it automatic on `save`, including this module sets up a `before_validation` callback.
+  }
   spec.homepage      = "https://github.com/borgand/deep_dirty"
   spec.license       = "MIT"
 
